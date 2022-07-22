@@ -8,7 +8,16 @@
 
                 <h1 class="page-header">
                     <?php echo $titulo?>
-                    <small>> <?php echo $subtitulo?></small>
+                        <small>> 
+                        <?php 
+                        if($subtitulo != ''){
+                        echo $subtitulo;
+                        }else{
+                            foreach($subtitulodb as $dbtitulo){
+                                echo $dbtitulo->titulo;
+                            }
+                        }
+                        ?></small>
                 </h1>
 
                 <?php 
@@ -32,8 +41,6 @@
                 <?php
                 }
                 ?>
-                
-
                 <p><?php echo $destaque->subtitulo ?></p>
                 <a class="btn btn-primary" href="<?php echo base_url('postagem/'.$destaque->id.'/'.limpar($destaque->titulo))?>">Leia mais <span class="glyphicon glyphicon-chevron-right"></span></a>
 
